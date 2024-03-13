@@ -1,0 +1,195 @@
+/* Basic styles */
+body, h1, p, a {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Dark theme styles */
+body.dark-theme {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #1f1f1f;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-left: 100px;
+}
+
+.theme-switcher {
+  cursor: pointer;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between; /* This will push the children to each side */
+  align-items: center; /* This will vertically center the children */
+  /* position: relative;
+  min-height: 100vh; */
+}
+
+  /* Social media links */
+  .social-media-links {
+  display: flex;
+  justify-content: center;
+  margin-left: 250px;
+  order: 1;
+  margin-top: 10px;
+}
+
+.social-link {
+  margin: 0 10px;
+}
+
+.social-link img {
+  width: 40px; /* Size of social icons */
+}
+
+.profile-card {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  width: 45%; /* Adjust this value as needed to cover the right side of the screen */
+  height: 85vh; /* Make the card stretch from top to bottom */
+  border-radius: 50%;
+  overflow: hidden; /* Ensure nothing spills outside the round shape */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the content inside the profile card */
+  perspective: 1000px; /* For the flip effect */
+}
+
+.profile-front, .profile-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.profile-front {
+  background: #333;
+}
+
+.profile-img {
+  width: 100%;
+  height: auto; 
+  border-radius: 50%;
+}
+
+.profile-back {
+  background: #444;
+  transform: rotateY(180deg);
+}
+
+.profile-back p {
+  font-size: 15px; /* Adjust based on your preference */
+  line-height: 1.5; /* Ensures proper spacing between lines */
+  margin: 60px;
+  text-align: justify;
+}
+
+/* Hover effect for profile card */
+.profile-card:hover .profile-front {
+  transform: rotateY(180deg);
+}
+
+.profile-card:hover .profile-back {
+  transform: rotateY(0);
+}
+
+
+
+/* CSS CODE FOR TIMELINE PAGE */
+
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 50px auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.timeline-block:hover .timeline-content {
+  background-color: #555; /* Darker on hover */
+  color: #ddd; /* Slightly lighter text on hover */
+}
+
+.timeline-block {
+  position: relative;
+  padding-left: 40px;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translateY(-50%); 
+}
+
+.timeline-content {
+  margin-left: 80px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 4px;
+}
+
+h3 {
+  border-bottom: 1px solid #777;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  text-align:  center;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: italic;
+}
+
+.timeline-content p {
+  font-size: 0.9em;
+  line-height: 1.6;
+  text-align:  justify;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 768px) {
+.timeline-content {
+  margin-left: 40px;
+}
+
+.timeline-dot {
+  left: 10px;
+}
+}
+
+.timeline-block.in-view .timeline-content {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+  
+.timeline-content {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+  
